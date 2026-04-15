@@ -77,4 +77,7 @@ function createCircle(feature, latlng) {
   return L.circleMarker(latlng, options)
 }
 
+function defaultMapSettings() {
+  map.setView([58.373523, 26.716045], 12)
+}
 
