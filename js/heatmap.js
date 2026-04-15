@@ -18,8 +18,16 @@ addGeoJson('geojson/tartu_city_celltowers_edu.geojson')
 async function addGeoJson(url) {
   const response = await fetch(url)
   const data = await response.json()
-  console.log(data.features[0].geometry.coordinates)
-  console.log(data.features[0].properties.area)
+  const heatData = data.features.map(heatDataConvert)
+  console.log(heatData)
+}
+function heatDataConvert(feature) {
+  return [
+    feature.geometry.coordinates[1],
+    feature.geometry.coordinates[0],
+    feature.properties.area,
+  ]
+}
 }
 
 
