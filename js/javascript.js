@@ -57,9 +57,11 @@ function polygonStyle(feature) {
 async function addCelltowersGeoJson(url) {
   const response = await fetch(url)
   const data = await response.json()
-  const markers = L.geoJson(data)
+  const circles = L.geoJson(data, {
+    pointToLayer: createCircle,
+  })
   const clusters = L.markerClusterGroup()
-  clusters.addLayer(markers)
+  clusters.addLayer(circles)
   clusters.addTo(map)
 
 }
