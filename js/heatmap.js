@@ -28,7 +28,7 @@ function heatDataConvert(feature) {
     feature.properties.area,
   ]
 }
-}
+
 
 
 
